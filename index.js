@@ -24,30 +24,29 @@ const minHeap = () => {
   };
 
   /**
-   * finds left child's position of a given position
-   * @param {number} i
+   * finds left child's index from parent index
+   * @param {number} parent
    * @returns {number}
    */
   const leftIndex = parent => (parent * 2) + 1;
 
   /**
-   * finds right child's position of a given position
-   * @param {number} i
+   * finds right child's index from parent index
+   * @param {number} parent
    * @returns {number}
    */
   const rightIndex = parent => (parent * 2) + 2;
 
   /**
-   * finds parent's position of a given position
+   * finds parent's index of a child index
    * @param {number} i
    * @returns {number}
    */
   const parentIndex = child => Math.floor((child - 1) / 2);
 
   /**
-   * returns one of the children based on a compare function
-   * @param {number} left
-   * @param {right} left
+   * finds the min child's index of a parent
+   * @param {number} parent
    */
   const minChildIndex = (parent) => {
     const left = leftIndex(parent);
@@ -63,7 +62,7 @@ const minHeap = () => {
   };
 
   /**
-   * gets the min element
+   * gets the min element (root) in the heap
    * @returns {(string|number|null)}
    */
   const min = () => {
@@ -75,7 +74,6 @@ const minHeap = () => {
 
   /**
    * bubbles last element in the nodes list
-   * @param {number} i
    */
   const bubbleLast = () => {
     let child = nodes.length - 1;
@@ -89,7 +87,6 @@ const minHeap = () => {
 
   /**
    * fix the root element
-   * @param {number} parent
    */
   const fixRoot = () => {
     let parent = 0;
@@ -112,8 +109,7 @@ const minHeap = () => {
   };
 
   /**
-   * @public
-   * removes the min element from the heap
+   * retrieves and removes the min element from the heap
    * @returns {(string|number|null)}
    */
   const extractMin = () => {
