@@ -6,7 +6,7 @@
 
 elements data type: **number**, **string**.
 
-<img width="500" alt="ll" src="https://user-images.githubusercontent.com/6517308/36940955-78f30c82-1f15-11e8-9ed1-6d9414c243c4.png">
+<img width="420" alt="ll" src="https://user-images.githubusercontent.com/6517308/36940955-78f30c82-1f15-11e8-9ed1-6d9414c243c4.png">
 
 ## Usage
 ```js
