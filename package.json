@@ -1,6 +1,6 @@
 {
   "name": "@datastructures-js/min-heap",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "min heap implementation in javascript",
   "main": "index.js",
   "scripts": {
