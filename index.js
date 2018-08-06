@@ -3,6 +3,35 @@
  * @copyright 2018 Eyas Ranjous <eyas.ranjous@gmail.com>
  * @license MIT
  */
+
+/**
+ * heap node
+ * @function
+ */
+const node = (k, v) => {
+  const key = k;
+  const value = v || null;
+
+  /**
+   * @returns {string|number}
+   */
+  const getKey = () => key;
+
+  /**
+   * @returns {object}
+   */
+  const getValue = () => value;
+
+  return {
+    getKey,
+    getValue
+  };
+};
+
+/**
+ * min heap
+ * @function
+ */
 const minHeap = () => {
   let nodes = [];
   let heapSize = 0;
@@ -52,7 +81,8 @@ const minHeap = () => {
     const left = leftIndex(parent);
     const right = rightIndex(parent);
     if (left < heapSize && right < heapSize) {
-      return nodes[left] < nodes[right] ? left : right;
+      return nodes[left].getKey() < nodes[right].getKey()
+        ? left : right;
     } else if (right < heapSize) {
       return right;
     } else if (left < heapSize) {
@@ -78,7 +108,8 @@ const minHeap = () => {
   const bubbleLast = () => {
     let child = nodes.length - 1;
     let parent = parentIndex(child);
-    while (child > 0 && nodes[parent] > nodes[child]) {
+    while (child > 0 &&
+      nodes[parent].getKey() > nodes[child].getKey()) {
       swap(child, parent);
       child = parent;
       parent = parentIndex(child);
@@ -91,7 +122,8 @@ const minHeap = () => {
   const fixRoot = () => {
     let parent = 0;
     let minChild = minChildIndex(parent);
-    while (minChild !== null && nodes[parent] > nodes[minChild]) {
+    while (minChild !== null &&
+      nodes[parent].getKey() > nodes[minChild].getKey()) {
       swap(parent, minChild);
       parent = minChild;
       minChild = minChildIndex(parent);
@@ -100,10 +132,11 @@ const minHeap = () => {
 
   /**
    * inserts a value into the heap and fix the min position
-   * @param {(string|number)} value
+   * @param {(string|number)} key
+   * @param {object} value
    */
-  const insert = (value) => {
-    nodes.push(value);
+  const insert = (key, value) => {
+    nodes.push(node(key, value));
     heapSize += 1;
     bubbleLast();
   };
