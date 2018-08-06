@@ -93,7 +93,7 @@ const minHeap = () => {
 
   /**
    * gets the min element (root) in the heap
-   * @returns {(string|number|null)}
+   * @returns {object} - min heap key/value node
    */
   const min = () => {
     if (heapSize > 0) {
@@ -143,7 +143,7 @@ const minHeap = () => {
 
   /**
    * retrieves and removes the min element from the heap
-   * @returns {(string|number|null)}
+   * @returns {object} - min heap key/value node
    */
   const extractMin = () => {
     if (heapSize > 0) {
