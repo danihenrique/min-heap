@@ -16,17 +16,17 @@ const minHeap = minHeapFn();
 
 ## API
 
-**.insert(value)** 
+**.insert(key, value)** 
 
-inserts a value into the heap.
+inserts a key/value node into the heap. default value is null.
 ```javascript
-minHeap.insert(50);
+minHeap.insert(50, 'test');
 minHeap.insert(80);
 minHeap.insert(30);
 minHeap.insert(90);
 minHeap.insert(60);
 minHeap.insert(40);
-minHeap.insert(20);
+minHeap.insert(20, { name: 'john' });
 ```
 
 **.size()** 
@@ -38,17 +38,18 @@ console.log(minHeap.size()); // 7
 
 **.min()** 
 
-peeks on the min value in the heap
+peeks on the min key node in the heap
 ```javascript
-console.log(minHeap.min()); // 20
+console.log(minHeap.min().getKey()); // 20
+console.log(minHeap.min().getValue()); // { name: 'john' }
 ```
 
 **.extractMin()** 
 
-retrieves and remove the min value from the heap
+retrieves and remove the min key node from the heap
 ```javascript
-console.log(minHeap.extractMin()); // 20
-console.log(minHeap.min()); // 30
+console.log(minHeap.extractMin().getKey()); // 20
+console.log(minHeap.min().getKey()); // 30
 ```
 
 **.clear()** 
